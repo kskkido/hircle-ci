@@ -1,0 +1,202 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           haskell-ci
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/haskell-ci#readme>
+homepage:       https://github.com/githubuser/haskell-ci#readme
+bug-reports:    https://github.com/githubuser/haskell-ci/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2022 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/haskell-ci
+
+library
+  exposed-modules:
+      Models.AgentCommand.Main
+      Models.AgentConfig.Main
+      Models.AgentMessage.Main
+      Models.Build.Main
+      Models.BuildHooks.Main
+      Models.BuildNumber.Main
+      Models.BuildResult.Main
+      Models.BuildRunningState.Main
+      Models.BuildState.Main
+      Models.BuildStepDTO.Main
+      Models.CliCommand.Main
+      Models.Job.Main
+      Models.JobQueuedResponse.Main
+      Models.JobState.Main
+      Models.JobStore.Main
+      Models.Log.Main
+      Models.LogCollection.Main
+      Models.LogCollectionStatus.Main
+      Models.Pipeline.Main
+      Models.ServerConfig.Main
+      Models.Step.Main
+      Models.StepName.Main
+      Models.StepResult.Main
+      Modules.Docker.Main
+      Modules.Docker.Models.ContainerCheckOptions.Main
+      Modules.Docker.Models.ContainerCheckResponse.Main
+      Modules.Docker.Models.ContainerCreateOptions.Main
+      Modules.Docker.Models.ContainerCreateResponse.Main
+      Modules.Docker.Models.ContainerExitCode.Main
+      Modules.Docker.Models.ContainerID.Main
+      Modules.Docker.Models.ContainerStartOptions.Main
+      Modules.Docker.Models.ContainerStartResponse.Main
+      Modules.Docker.Models.ContainerStatus.Main
+      Modules.Docker.Models.Image.Main
+      Modules.Docker.Models.ImageCreateOptions.Main
+      Modules.Docker.Models.LogGetOptions.Main
+      Modules.Docker.Models.LogGetResponse.Main
+      Modules.Docker.Models.Response.Main
+      Modules.Docker.Models.Volume.Main
+      Modules.Docker.Models.VolumeCreateOptions.Main
+      Modules.Docker.Models.VolumeCreateResponse.Main
+      Modules.Github.Main
+      Modules.Github.Models.Commit.Main
+      Modules.Github.Models.GetContentOptions.Main
+      Modules.Socket.Main
+      Modules.Timestamp.Main
+      Services.Agent.Main
+      Services.Agent.Modules.Build.Main
+      Services.Agent.Modules.Main
+      Services.Build.Main
+      Services.Build.Modules.Docker.Main
+      Services.Build.Modules.Log.Main
+      Services.Build.Modules.Main
+      Services.Cli.Main
+      Services.Log.Main
+      Services.Log.Modules.Docker.Main
+      Services.Log.Modules.Main
+      Services.Server.Main
+      Services.Server.Modules.Job.Main
+      Services.Server.Modules.Main
+  other-modules:
+      Paths_haskell_ci
+  hs-source-dirs:
+      src
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+  ghc-options: -F -pgmF=record-dot-preprocessor
+  build-depends:
+      aeson
+    , async
+    , base
+    , butcher
+    , bytestring
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , network
+    , record-hasfield
+    , rio
+    , scotty
+    , serialise
+    , stm
+    , time
+    , typed-process
+    , wai-cors
+    , yaml
+  default-language: Haskell2010
+
+executable haskell-ci-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_ci
+  hs-source-dirs:
+      app
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+  ghc-options: -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , async
+    , base
+    , butcher
+    , bytestring
+    , haskell-ci
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , network
+    , record-hasfield
+    , rio
+    , scotty
+    , serialise
+    , stm
+    , time
+    , typed-process
+    , wai-cors
+    , yaml
+  default-language: Haskell2010
+
+test-suite haskell-ci-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Fixtures.Models.Build.Main
+      Fixtures.Models.Pipeline.Main
+      Fixtures.Modules.Github.Models.Commit.Main
+      Paths_haskell_ci
+  hs-source-dirs:
+      test
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+  ghc-options: -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , async
+    , base
+    , butcher
+    , bytestring
+    , haskell-ci
+    , hslogger
+    , hspec
+    , http-client
+    , http-conduit
+    , http-types
+    , network
+    , record-hasfield
+    , rio
+    , scotty
+    , serialise
+    , stm
+    , time
+    , typed-process
+    , wai-cors
+    , yaml
+  default-language: Haskell2010
